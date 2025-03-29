@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // 添加图标到编辑按钮
   const toggleEditBtn = document.getElementById('toggle-edit');
   if (toggleEditBtn) {
-    toggleEditBtn.innerHTML = '<i class="fas fa-edit"></i>';
+    toggleEditBtn.innerHTML = '<i class="fa-solid fa-edit"></i>';
   }
   
   fetchLinks();
@@ -23,8 +23,8 @@ function setupMobileNav() {
       nav.classList.toggle('active');
       const isOpen = nav.classList.contains('active');
       mobileNavToggle.innerHTML = isOpen ? 
-        '<i class="fas fa-times"></i>' : 
-        '<i class="fas fa-bars"></i>';
+        '<i class="fa-solid fa-xmark"></i>' : 
+        '<i class="fa-solid fa-bars"></i>';
     });
     
     // Close menu when clicking on a link
@@ -32,7 +32,7 @@ function setupMobileNav() {
       link.addEventListener('click', function() {
         if (window.innerWidth <= 480) {
           nav.classList.remove('active');
-          mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          mobileNavToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
         }
       });
     });
@@ -165,10 +165,10 @@ function setupPullToRefresh() {
         
         if (distance >= minPullDistance) {
           body.classList.add('ptr-active');
-          ptrIndicator.innerHTML = '<i class="fas fa-sync fa-spin"></i> 释放刷新';
+          ptrIndicator.innerHTML = '<i class="fa-solid fa-sync fa-spin"></i> 释放刷新';
         } else {
           body.classList.remove('ptr-active');
-          ptrIndicator.innerHTML = '<i class="fas fa-arrow-down"></i> 下拉刷新';
+          ptrIndicator.innerHTML = '<i class="fa-solid fa-arrow-down"></i> 下拉刷新';
         }
         
         // Prevent default scrolling when pulling
@@ -445,44 +445,44 @@ function setupEditForm() {
 function getDefaultLinks() {
   return [
     // Ai搜索
-    { category: 'ai-search', title: 'ChatGPT', url: 'https://chat.openai.com', icon: 'fas fa-robot' },
-    { category: 'ai-search', title: 'Claude', url: 'https://claude.ai', icon: 'fas fa-brain' },
-    { category: 'ai-search', title: 'Perplexity', url: 'https://perplexity.ai', icon: 'fas fa-search' },
-    { category: 'ai-search', title: 'Bing AI', url: 'https://bing.com/chat', icon: 'fab fa-microsoft' },
-    { category: 'ai-search', title: 'Bard', url: 'https://bard.google.com', icon: 'fab fa-google' },
+    { category: 'ai-search', title: 'ChatGPT', url: 'https://chat.openai.com', icon: 'fa-solid fa-robot' },
+    { category: 'ai-search', title: 'Claude', url: 'https://claude.ai', icon: 'fa-solid fa-brain' },
+    { category: 'ai-search', title: 'Perplexity', url: 'https://perplexity.ai', icon: 'fa-solid fa-magnifying-glass' },
+    { category: 'ai-search', title: 'Bing AI', url: 'https://bing.com/chat', icon: 'fa-brands fa-microsoft' },
+    { category: 'ai-search', title: 'Bard', url: 'https://bard.google.com', icon: 'fa-brands fa-google' },
     
     // 社交媒体
-    { category: 'social', title: 'Twitter', url: 'https://twitter.com', icon: 'fab fa-twitter' },
-    { category: 'social', title: 'Facebook', url: 'https://facebook.com', icon: 'fab fa-facebook' },
-    { category: 'social', title: 'Instagram', url: 'https://instagram.com', icon: 'fab fa-instagram' },
-    { category: 'social', title: 'LinkedIn', url: 'https://linkedin.com', icon: 'fab fa-linkedin' },
-    { category: 'social', title: 'Reddit', url: 'https://reddit.com', icon: 'fab fa-reddit' },
-    { category: 'social', title: 'Discord', url: 'https://discord.com', icon: 'fab fa-discord' },
+    { category: 'social', title: 'Twitter', url: 'https://twitter.com', icon: 'fa-brands fa-twitter' },
+    { category: 'social', title: 'Facebook', url: 'https://facebook.com', icon: 'fa-brands fa-facebook' },
+    { category: 'social', title: 'Instagram', url: 'https://instagram.com', icon: 'fa-brands fa-instagram' },
+    { category: 'social', title: 'LinkedIn', url: 'https://linkedin.com', icon: 'fa-brands fa-linkedin' },
+    { category: 'social', title: 'Reddit', url: 'https://reddit.com', icon: 'fa-brands fa-reddit' },
+    { category: 'social', title: 'Discord', url: 'https://discord.com', icon: 'fa-brands fa-discord' },
     
     // 实用工具
-    { category: 'tools', title: 'GitHub', url: 'https://github.com', icon: 'fab fa-github' },
-    { category: 'tools', title: 'VSCode', url: 'https://vscode.dev', icon: 'fas fa-code' },
-    { category: 'tools', title: 'Notion', url: 'https://notion.so', icon: 'far fa-sticky-note' },
-    { category: 'tools', title: 'Google翻译', url: 'https://translate.google.com', icon: 'fas fa-language' },
-    { category: 'tools', title: 'Z-Library', url: 'https://z-lib.org', icon: 'fas fa-book-reader' },
-    { category: 'tools', title: 'FontAwesome', url: 'https://fontawesome.com', icon: 'fas fa-icons' },
+    { category: 'tools', title: 'GitHub', url: 'https://github.com', icon: 'fa-brands fa-github' },
+    { category: 'tools', title: 'VSCode', url: 'https://vscode.dev', icon: 'fa-solid fa-code' },
+    { category: 'tools', title: 'Notion', url: 'https://notion.so', icon: 'fa-regular fa-note-sticky' },
+    { category: 'tools', title: 'Google翻译', url: 'https://translate.google.com', icon: 'fa-solid fa-language' },
+    { category: 'tools', title: 'Z-Library', url: 'https://z-lib.org', icon: 'fa-solid fa-book-open-reader' },
+    { category: 'tools', title: 'FontAwesome', url: 'https://fontawesome.com', icon: 'fa-solid fa-icons' },
     
     // 科技资讯
-    { category: 'tech-news', title: 'Hacker News', url: 'https://news.ycombinator.com', icon: 'fas fa-newspaper' },
-    { category: 'tech-news', title: 'TechCrunch', url: 'https://techcrunch.com', icon: 'fas fa-rss' },
-    { category: 'tech-news', title: '36Kr', url: 'https://36kr.com', icon: 'fas fa-rss-square' },
-    { category: 'tech-news', title: 'The Verge', url: 'https://theverge.com', icon: 'fas fa-laptop-code' },
+    { category: 'tech-news', title: 'Hacker News', url: 'https://news.ycombinator.com', icon: 'fa-solid fa-newspaper' },
+    { category: 'tech-news', title: 'TechCrunch', url: 'https://techcrunch.com', icon: 'fa-solid fa-rss' },
+    { category: 'tech-news', title: '36Kr', url: 'https://36kr.com', icon: 'fa-solid fa-square-rss' },
+    { category: 'tech-news', title: 'The Verge', url: 'https://theverge.com', icon: 'fa-solid fa-laptop-code' },
     
     // 云存储
-    { category: 'cloud-storage', title: 'Google云端硬盘', url: 'https://drive.google.com', icon: 'fab fa-google-drive' },
-    { category: 'cloud-storage', title: 'Dropbox', url: 'https://dropbox.com', icon: 'fab fa-dropbox' },
-    { category: 'cloud-storage', title: 'OneDrive', url: 'https://onedrive.live.com', icon: 'fas fa-cloud' },
-    { category: 'cloud-storage', title: 'iCloud', url: 'https://icloud.com', icon: 'fab fa-apple' },
+    { category: 'cloud-storage', title: 'Google云端硬盘', url: 'https://drive.google.com', icon: 'fa-brands fa-google-drive' },
+    { category: 'cloud-storage', title: 'Dropbox', url: 'https://dropbox.com', icon: 'fa-brands fa-dropbox' },
+    { category: 'cloud-storage', title: 'OneDrive', url: 'https://onedrive.live.com', icon: 'fa-solid fa-cloud' },
+    { category: 'cloud-storage', title: 'iCloud', url: 'https://icloud.com', icon: 'fa-brands fa-apple' },
     
     // 电子邮箱
-    { category: 'email', title: 'Gmail', url: 'https://mail.google.com', icon: 'fas fa-envelope' },
-    { category: 'email', title: 'Outlook', url: 'https://outlook.live.com', icon: 'fas fa-envelope-open' },
-    { category: 'email', title: 'ProtonMail', url: 'https://protonmail.com', icon: 'fas fa-shield-alt' },
-    { category: 'email', title: '163邮箱', url: 'https://mail.163.com', icon: 'fas fa-at' }
+    { category: 'email', title: 'Gmail', url: 'https://mail.google.com', icon: 'fa-solid fa-envelope' },
+    { category: 'email', title: 'Outlook', url: 'https://outlook.live.com', icon: 'fa-solid fa-envelope-open' },
+    { category: 'email', title: 'ProtonMail', url: 'https://protonmail.com', icon: 'fa-solid fa-shield-halved' },
+    { category: 'email', title: '163邮箱', url: 'https://mail.163.com', icon: 'fa-solid fa-at' }
   ];
 }
