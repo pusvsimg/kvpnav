@@ -1,51 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // 添加图标到编辑按钮
+  const toggleEditBtn = document.getElementById('toggle-edit');
+  if (toggleEditBtn) {
+    toggleEditBtn.innerHTML = '<i class="fas fa-edit"></i>';
+  }
+  
   fetchLinks();
   setupMobileNav();
   setupTouchInteractions();
   setupBottomNav();
   setupPullToRefresh();
   setupEditForm();
-
-  document.getElementById('link-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const formData = new FormData(this);
-    const linkData = Object.fromEntries(formData);
-    
-    const response = await fetch('/api/links', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        password: linkData.edit_password,
-        link: {
-          category: linkData.category,
-          title: linkData.title,
-          url: linkData.url,
-          icon: linkData.icon
-        }
-      }),
-    });
-
-    if (response.ok) {
-      alert('链接已保存');
-      fetchLinks();
-      this.reset();
-    } else {
-      const errorText = await response.text();
-      alert('保存失败: ' + errorText);
-    }
-  });
-
-  document.getElementById('toggle-edit').addEventListener('click', function() {
-    const editForm = document.getElementById('edit-form');
-    editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
-    
-    // Scroll to form when opened on mobile
-    if (editForm.style.display === 'block' && window.innerWidth <= 480) {
-      editForm.scrollIntoView({ behavior: 'smooth' });
-    }
-  });
 });
 
 // Setup mobile navigation
@@ -374,21 +339,41 @@ function setupEditForm() {
   const editForm = document.getElementById('edit-form');
   const closeFormBtn = document.querySelector('.close-form');
   
+  if (!toggleEditBtn || !editForm) {
+    console.error('编辑表单或编辑按钮元素未找到');
+    return;
+  }
+  
+  console.log('设置编辑表单处理程序');
+  
   // Toggle edit form visibility
   toggleEditBtn.addEventListener('click', function() {
+    console.log('点击了编辑按钮');
     if (window.innerWidth <= 480) {
       // Mobile specific handling with slide-up animation
       editForm.classList.toggle('active');
+      console.log('移动端模式，切换active类');
     } else {
       // Desktop handling
-      editForm.style.display = editForm.style.display === 'none' ? 'block' : 'none';
+      const newDisplay = editForm.style.display === 'none' ? 'block' : 'none';
+      console.log('桌面端模式，设置display为:', newDisplay);
+      editForm.style.display = newDisplay;
+      
+      // Scroll to form when opened on desktop
+      if (newDisplay === 'block') {
+        editForm.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   });
   
   // Close form button (mobile)
   if (closeFormBtn) {
     closeFormBtn.addEventListener('click', function() {
-      editForm.classList.remove('active');
+      if (window.innerWidth <= 480) {
+        editForm.classList.remove('active');
+      } else {
+        editForm.style.display = 'none';
+      }
     });
   }
   

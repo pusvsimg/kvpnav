@@ -261,12 +261,68 @@ footer nav a {
   }
 
   #edit-form {
-    padding: 0.8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    height: 100%;
+    z-index: 2000;
+    margin: 0;
+    padding: 1rem;
+    padding-top: 60px;
+    border-radius: 0;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    visibility: hidden;
+    display: block !important;
+    opacity: 0;
   }
   
-  #edit-form input, #edit-form select {
-    padding: 0.7rem;
-    font-size: 1rem;
+  #edit-form.active {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  #edit-form h2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    color: #000;
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    z-index: 2001;
+  }
+  
+  #edit-form .close-form {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 1.5rem;
+    z-index: 2002;
+    cursor: pointer;
+  }
+  
+  #toggle-edit {
+    width: 56px;
+    height: 56px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    z-index: 1100;
+  }
+  
+  #toggle-edit:active {
+    transform: scale(0.95);
   }
   
   main {
@@ -427,58 +483,4 @@ footer nav a {
   z-index: 10000;
   opacity: 0;
   transition: opacity 0.3s;
-}
-
-/* Form improvements for mobile */
-@media (max-width: 480px) {
-  #edit-form {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    max-width: 100%;
-    height: 100%;
-    z-index: 2000;
-    margin: 0;
-    padding: 1rem;
-    padding-top: 60px;
-    border-radius: 0;
-    overflow-y: auto;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
-    display: block !important;
-    visibility: hidden;
-  }
-  
-  #edit-form.active {
-    transform: translateY(0);
-    visibility: visible;
-  }
-  
-  #edit-form h2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--primary-color);
-    color: #000;
-    margin: 0;
-    padding: 1rem;
-    text-align: center;
-    font-size: 1.2rem;
-    z-index: 2001;
-  }
-  
-  #edit-form .close-form {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    color: #000;
-    font-size: 1.5rem;
-    z-index: 2002;
-    cursor: pointer;
-  }
 }
