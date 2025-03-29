@@ -444,45 +444,52 @@ function setupEditForm() {
 // 提供默认链接数据，当API不可用时使用
 function getDefaultLinks() {
   return [
-    // Ai搜索
-    { category: 'ai-search', title: 'ChatGPT', url: 'https://chat.openai.com', icon: 'fa-solid fa-robot' },
-    { category: 'ai-search', title: 'Claude', url: 'https://claude.ai', icon: 'fa-solid fa-brain' },
-    { category: 'ai-search', title: 'Perplexity', url: 'https://perplexity.ai', icon: 'fa-solid fa-magnifying-glass' },
-    { category: 'ai-search', title: 'Bing AI', url: 'https://bing.com/chat', icon: 'fa-brands fa-microsoft' },
-    { category: 'ai-search', title: 'Bard', url: 'https://bard.google.com', icon: 'fa-brands fa-google' },
+    // AI搜索
+    { category: 'ai-search', title: 'Google', url: 'https://www.google.com', icon: 'fa-brands fa-google' },
+    { category: 'ai-search', title: 'Bing', url: 'https://www.bing.com', icon: 'fa-brands fa-microsoft' },
+    { category: 'ai-search', title: '傻豆包', url: 'https://www.doubao.com/chat', icon: 'fa-solid fa-paw' },
+    { category: 'ai-search', title: 'ChatGPT', url: 'https://chat.openai.com/', icon: 'fa-solid fa-robot' },
+    { category: 'ai-search', title: 'Perplexity', url: 'https://www.perplexity.ai/', icon: 'fa-solid fa-brain' },
+    { category: 'ai-search', title: 'Claude', url: 'https://claude.ai/', icon: 'fa-solid fa-robot' },
     
     // 社交媒体
+    { category: 'social', title: 'YouTube', url: 'https://www.youtube.com', icon: 'fa-brands fa-youtube' },
     { category: 'social', title: 'Twitter', url: 'https://twitter.com', icon: 'fa-brands fa-twitter' },
-    { category: 'social', title: 'Facebook', url: 'https://facebook.com', icon: 'fa-brands fa-facebook' },
-    { category: 'social', title: 'Instagram', url: 'https://instagram.com', icon: 'fa-brands fa-instagram' },
-    { category: 'social', title: 'LinkedIn', url: 'https://linkedin.com', icon: 'fa-brands fa-linkedin' },
-    { category: 'social', title: 'Reddit', url: 'https://reddit.com', icon: 'fa-brands fa-reddit' },
-    { category: 'social', title: 'Discord', url: 'https://discord.com', icon: 'fa-brands fa-discord' },
+    { category: 'social', title: 'Reddit', url: 'https://www.reddit.com', icon: 'fa-brands fa-reddit' },
+    { category: 'social', title: 'LinkedIn', url: 'https://www.linkedin.com', icon: 'fa-brands fa-linkedin' },
+    { category: 'social', title: 'Facebook', url: 'https://www.facebook.com', icon: 'fa-brands fa-facebook' },
+    { category: 'social', title: 'Instagram', url: 'https://www.instagram.com', icon: 'fa-brands fa-instagram' },
     
     // 实用工具
-    { category: 'tools', title: 'GitHub', url: 'https://github.com', icon: 'fa-brands fa-github' },
-    { category: 'tools', title: 'VSCode', url: 'https://vscode.dev', icon: 'fa-solid fa-code' },
-    { category: 'tools', title: 'Notion', url: 'https://notion.so', icon: 'fa-regular fa-note-sticky' },
+    { category: 'tools', title: 'Gmail', url: 'https://mail.google.com', icon: 'fa-solid fa-envelope' },
     { category: 'tools', title: 'Google翻译', url: 'https://translate.google.com', icon: 'fa-solid fa-language' },
-    { category: 'tools', title: 'Z-Library', url: 'https://z-lib.org', icon: 'fa-solid fa-book-open-reader' },
-    { category: 'tools', title: 'FontAwesome', url: 'https://fontawesome.com', icon: 'fa-solid fa-icons' },
+    { category: 'tools', title: 'Google地图', url: 'https://maps.google.com', icon: 'fa-solid fa-map-location-dot' },
+    { category: 'tools', title: 'GitHub', url: 'https://github.com', icon: 'fa-brands fa-github' },
+    { category: 'tools', title: 'Cloudflare', url: 'https://dash.cloudflare.com', icon: 'fa-solid fa-cloud' },
+    { category: 'tools', title: 'AWS控制台', url: 'https://aws.amazon.com/console', icon: 'fa-brands fa-aws' },
     
     // 科技资讯
     { category: 'tech-news', title: 'Hacker News', url: 'https://news.ycombinator.com', icon: 'fa-solid fa-newspaper' },
     { category: 'tech-news', title: 'TechCrunch', url: 'https://techcrunch.com', icon: 'fa-solid fa-rss' },
-    { category: 'tech-news', title: '36Kr', url: 'https://36kr.com', icon: 'fa-solid fa-square-rss' },
-    { category: 'tech-news', title: 'The Verge', url: 'https://theverge.com', icon: 'fa-solid fa-laptop-code' },
+    { category: 'tech-news', title: 'The Verge', url: 'https://theverge.com', icon: 'fa-solid fa-bolt' },
+    { category: 'tech-news', title: 'Wired', url: 'https://wired.com', icon: 'fa-solid fa-wifi' },
+    { category: 'tech-news', title: 'MIT科技评论', url: 'https://www.technologyreview.com', icon: 'fa-solid fa-graduation-cap' },
+    { category: 'tech-news', title: 'CNET', url: 'https://www.cnet.com', icon: 'fa-solid fa-microchip' },
     
     // 云存储
-    { category: 'cloud-storage', title: 'Google云端硬盘', url: 'https://drive.google.com', icon: 'fa-brands fa-google-drive' },
-    { category: 'cloud-storage', title: 'Dropbox', url: 'https://dropbox.com', icon: 'fa-brands fa-dropbox' },
+    { category: 'cloud-storage', title: 'Google Drive', url: 'https://drive.google.com', icon: 'fa-brands fa-google-drive' },
+    { category: 'cloud-storage', title: 'Dropbox', url: 'https://www.dropbox.com', icon: 'fa-brands fa-dropbox' },
     { category: 'cloud-storage', title: 'OneDrive', url: 'https://onedrive.live.com', icon: 'fa-solid fa-cloud' },
-    { category: 'cloud-storage', title: 'iCloud', url: 'https://icloud.com', icon: 'fa-brands fa-apple' },
+    { category: 'cloud-storage', title: 'iCloud', url: 'https://www.icloud.com', icon: 'fa-brands fa-apple' },
+    { category: 'cloud-storage', title: 'MEGA', url: 'https://mega.nz', icon: 'fa-solid fa-hard-drive' },
+    { category: 'cloud-storage', title: 'Box', url: 'https://www.box.com', icon: 'fa-solid fa-box' },
     
     // 电子邮箱
     { category: 'email', title: 'Gmail', url: 'https://mail.google.com', icon: 'fa-solid fa-envelope' },
-    { category: 'email', title: 'Outlook', url: 'https://outlook.live.com', icon: 'fa-solid fa-envelope-open' },
-    { category: 'email', title: 'ProtonMail', url: 'https://protonmail.com', icon: 'fa-solid fa-shield-halved' },
-    { category: 'email', title: '163邮箱', url: 'https://mail.163.com', icon: 'fa-solid fa-at' }
+    { category: 'email', title: 'Outlook', url: 'https://outlook.live.com', icon: 'fa-brands fa-microsoft' },
+    { category: 'email', title: 'Yahoo邮箱', url: 'https://mail.yahoo.com', icon: 'fa-brands fa-yahoo' },
+    { category: 'email', title: 'ProtonMail', url: 'https://mail.proton.me', icon: 'fa-solid fa-lock' },
+    { category: 'email', title: 'Zoho Mail', url: 'https://mail.zoho.com', icon: 'fa-solid fa-at' },
+    { category: 'email', title: 'QQ邮箱', url: 'https://mail.qq.com', icon: 'fa-brands fa-qq' }
   ];
 }
